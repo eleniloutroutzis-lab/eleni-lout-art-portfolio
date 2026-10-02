@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eleni • Sleek Natural Gothic Art Portfolio</title>
+  <meta name="description" content="Portfolio of visual artist Eleni showcasing mythical creatures, kinetic ink studies, and sleek natural gothic fine art." />
+  
+  <!-- Sleek Gothic & Editorial Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Sleek Gothic Top Strip (Editable) -->
+  <div class="gothic-top-banner" aria-hidden="true">
+    <span data-editable="topBanner">THE ART ARCHIVE OF <span class="accent">ELENI</span> &bull; MYTHICAL FORMS, KINETIC LINE &bull; COMMISSIONS OPEN</span>
+  </div>
+
+  <!-- Admin Session Banner (Visible when Eleni is Logged In) -->
+  <aside id="admin-status-banner" class="admin-status-banner" aria-label="Admin Session Active">
+    <div class="admin-banner-left">
+      <span class="admin-badge">ARTIST STUDIO ACTIVE</span>
+      <span>SIGNED IN: <strong>eleniloutroutzis@gmail.com</strong></span>
+    </div>
+
+    <!-- Live Editing Tools for Eleni -->
+    <div class="admin-tools-group">
+      <button id="toggle-live-edit-btn" class="btn-admin-tool" title="Click to enable live typing directly on the page">
+        <span>✎ Live Edit: <strong id="live-edit-status-text">OFF</strong></span>
+      </button>
+
+      <button id="save-live-content-btn" class="btn-admin-tool btn-save-content" title="Save all text edits you made">
+        <span>✓ Save Page Changes</span>
+      </button>
+
+      <button id="reset-content-btn" class="btn-admin-tool" title="Reset all text to original defaults">
+        <span>↺ Reset Text</span>
+      </button>
+
+      <button id="admin-logout-btn" class="btn-admin-logout" title="Sign out of Studio Mode">
+        SIGN OUT
+      </button>
+    </div>
+  </aside>
+
+  <!-- Floating Save Reminder when live-editing -->
+  <div id="unsaved-floating-badge" class="unsaved-floating-badge">
+    <span>✎ You have unsaved text edits!</span>
+    <button id="floating-save-btn" style="background:#000; color:#fff; border:none; padding:3px 10px; cursor:pointer; font-family:var(--font-gothic);">SAVE</button>
+  </div>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#" class="brand-wrapper" aria-label="Eleni Art Home">
+        <div class="brand-monogram-gothic" data-editable="brandMonogram">E</div>
+        <div class="brand-name-group">
+          <span class="brand-title" data-editable="brandTitle">ELENI</span>
+          <span class="brand-sub" data-editable="brandSub">fine art & natural forms</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#gallery" class="nav-link active">I. Works</a></li>
+          <li><a href="#about" class="nav-link">II. About</a></li>
+          <li><a href="#contact" class="nav-link">III. Inquiries</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Visible when Eleni is logged in -->
+        <button id="open-studio-btn" class="btn-studio" title="Add your artwork to this gallery">
+          <span>+ Post Artwork</span>
+        </button>
+
+        <!-- Artist Login Trigger -->
+        <button id="open-login-btn" class="btn-login-trigger" title="Artist Sign In">
+          <span id="login-btn-text">Studio Access</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section (Featuring Main Photo & Editable Headline) -->
+    <section class="hero-section">
+      <div class="container">
+        
+        <div class="hero-gothic-grid">
+          <!-- Hero Left: Narrative & Typography (Fully Editable) -->
+          <div>
+            <div class="hero-crest-badge">
+              <span data-editable="heroBadge">SELECTED MASTERWORK // 2026</span>
+            </div>
+
+            <h1 class="hero-heading" id="hero-heading-box" data-editable="heroHeading">
+              NATURAL FORMS, <br />
+              <span class="natural-accent">Gothic Shadows.</span>
+            </h1>
+
+            <p class="hero-text" data-editable="heroDescription">
+              The visual collection of Eleni. Exploring the raw intersection of fierce mythical spirits, delicate organic botany, and kinetic graphite studies across dark, tactile canvases.
+            </p>
+
+            <div class="hero-actions-row">
+              <a href="#gallery" class="btn-gothic-primary">
+                <span>Explore Works</span>
+              </a>
+              <a href="#about" class="btn-gothic-secondary">Artist Statement</a>
+            </div>
+          </div>
+
+          <!-- Hero Right: Featured Masterpiece Frame with Change Photo Button -->
+          <div>
+            <div class="hero-master-frame">
+              <!-- Change Photo Button for Eleni -->
+              <button id="btn-change-hero-img" class="btn-change-hero-img" title="Click to swap the main photo on screen">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+                <span>Change Main Photo</span>
+              </button>
+
+              <div class="hero-media-inner">
+                <img id="hero-main-photo" src="assets/images/eleni-tiger-dream.png" alt="Featured artwork by Eleni" />
+              </div>
+              <div class="hero-frame-caption">
+                <span class="caption-title" id="hero-caption-title" data-editable="heroCaptionTitle">The White Tiger & Ghost Lilies</span>
+                <span class="caption-tag" id="hero-caption-tag" data-editable="heroCaptionTag">Ink, Pigment & Glaze</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Gallery Section (The Exhibition) -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        
+        <div class="gallery-section-header">
+          <h2 class="gothic-section-title" data-editable="galleryTitle">THE COLLECTION</h2>
+          <p class="gothic-section-subtitle" data-editable="gallerySubtitle">Paintings, mythical studies & kinetic drawings</p>
+          <div class="gothic-filigree-divider">
+            <span>&bull;</span>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div class="filter-bar" role="tablist">
+            <button class="filter-btn active" data-filter="all" role="tab">
+              <span>All Works</span>
+              <span class="filter-count">(0)</span>
+            </button>
+            <button class="filter-btn" data-filter="digital" role="tab">
+              <span>Mythic & Digital</span>
+              <span class="filter-count">(0)</span>
+            </button>
+            <button class="filter-btn" data-filter="traditional" role="tab">
+              <span>Oils & Graphite</span>
+              <span class="filter-count">(0)</span>
+            </button>
+            <button class="filter-btn" data-filter="photography" role="tab">
+              <span>35mm Film</span>
+              <span class="filter-count">(0)</span>
+            </button>
+          </div>
+
+          <div id="gallery-stats" class="gallery-counter-status">CATALOGING WORKS...</div>
+        </div>
+
+        <!-- Dynamic Grid of Sleek Gothic Cards -->
+        <div id="gallery-grid" class="gallery-grid" aria-live="polite">
+          <!-- Populated by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About & Manifesto (Editable) -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="about-gothic-layout">
+          
+          <!-- Left Seal Card -->
+          <div class="about-portrait-card">
+            <div class="artist-seal" data-editable="aboutMonogram">E</div>
+            <h3 class="artist-seal-name" data-editable="aboutArtistName">ELENI</h3>
+            <div class="artist-seal-role" data-editable="aboutArtistRole">Visual Artist & Painter</div>
+
+            <table class="gothic-specs-table">
+              <tr>
+                <td>FOCUS:</td>
+                <td data-editable="aboutSpecFocus">Mythic Beasts, Form, Motion</td>
+              </tr>
+              <tr>
+                <td>MEDIUMS:</td>
+                <td data-editable="aboutSpecMediums">Oil, Cold Wax, Graphite, Ink</td>
+              </tr>
+              <tr>
+                <td>LOCATION:</td>
+                <td data-editable="aboutSpecLocation">Athens, Greece</td>
+              </tr>
+              <tr>
+                <td>DIRECT INQUIRIES:</td>
+                <td>eleniloutroutzis@gmail.com</td>
+              </tr>
+            </table>
+
+            <div style="margin-top:1.75rem; font-family:var(--font-editorial); font-style:italic; font-size:1.15rem; color:var(--text-ash);" data-editable="aboutMotto">
+              "Grounded in nature, defined by shadow."
+            </div>
+          </div>
+
+          <!-- Right Manifesto -->
+          <div class="about-manifesto-text">
+            <h2 data-editable="aboutManifestoTitle">ARTIST STATEMENT</h2>
+            
+            <div class="gothic-quote" data-editable="aboutManifestoQuote">
+              "My work balances power with stillness. A tiger's intense gaze amidst natural flora, or the kinetic spray of ocean water caught on raw paper — capturing natural instinct through sharp, purposeful strokes."
+            </div>
+
+            <p class="gothic-narrative-p" data-editable="aboutManifestoNarrative">
+              I work between natural physical media — dragging palette knives with heavy oil glazes across linen — and sharp digital illustrations. In every piece, I aim to preserve the raw, tactile presence of nature: organic botanical structures, raw bone values, and deep obsidian shadows.
+            </p>
+
+            <div class="process-triad">
+              <div class="triad-card">
+                <div class="triad-num">I. GESTURE & STUDY</div>
+                <div class="triad-name" data-editable="process1Title">OBSERVATION</div>
+                <p class="triad-desc" data-editable="process1Desc">Studying natural motion, anatomical tension, and organic flora in the field.</p>
+              </div>
+
+              <div class="triad-card">
+                <div class="triad-num">II. LAYER & PIGMENT</div>
+                <div class="triad-name" data-editable="process2Title">STRUCTURE</div>
+                <p class="triad-desc" data-editable="process2Desc">Building rich tonal depth with charcoal grounds, raw umbers, and controlled glazes.</p>
+              </div>
+
+              <div class="triad-card">
+                <div class="triad-num">III. REFINEMENT</div>
+                <div class="triad-name" data-editable="process3Title">FINAL POLISH</div>
+                <p class="triad-desc" data-editable="process3Desc">Refining micro-edges, specular highlights, and archival output.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section (Editable) -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-sanctuary-box">
+          
+          <!-- Left Info -->
+          <div class="sanctuary-info">
+            <h3 data-editable="contactTitle">STUDIO INQUIRIES</h3>
+            <p data-editable="contactDesc">
+              For original canvas purchases, custom commissions, or collaborations, send a note directly to my desk.
+            </p>
+
+            <div>
+              <a href="mailto:eleniloutroutzis@gmail.com" class="sanctuary-pill">
+                <span>&bull; eleniloutroutzis@gmail.com</span>
+              </a>
+            </div>
+            <div>
+              <div class="sanctuary-pill" style="color:var(--text-bone);">
+                <span data-editable="contactAvailability">&bull; Open for Select Commissions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Form -->
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="contact-name">YOUR NAME *</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. Adrienne Laurent" required />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">EMAIL ADDRESS *</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="adrienne@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-inquiry">INQUIRY TYPE</label>
+              <select id="contact-inquiry" class="form-select">
+                <option value="commission">Original Commission / Custom Piece</option>
+                <option value="print">Fine Art Canvas Print</option>
+                <option value="licensing">Editorial / Commercial Collaboration</option>
+                <option value="general">General Inquiries</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">YOUR VISION *</label>
+              <textarea id="contact-message" class="form-textarea" placeholder="Tell me about your desired dimensions, subject, or questions..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-gothic-primary" style="width:100%; justify-content:center;">
+              <span>Send Message</span>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        &copy; 2026 <strong>ELENI</strong>. ALL ARTWORK RESERVED.
+      </div>
+      <div style="font-family:var(--font-editorial); font-style:italic; font-size:1.05rem; color:var(--text-ash);">
+        Natural forms & sleek gothic shadows
+      </div>
+      <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="btn-admin-logout">
+        BACK TO TOP &uarr;
+      </button>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+
+  <!-- Modal: Change Main Hero Photo -->
+  <div id="hero-image-modal" class="hero-image-modal" role="dialog" aria-modal="true" aria-label="Change Main Photo">
+    <div class="gothic-dialog-box">
+      <div class="gothic-dialog-header">
+        <h3 class="gothic-dialog-title">CHANGE MAIN HERO PHOTO</h3>
+        <button id="close-hero-img-btn" class="gothic-close-btn">&times;</button>
+      </div>
+
+      <form id="hero-image-form">
+        <!-- Dropzone for new main photo -->
+        <div class="dropzone" id="hero-dropzone">
+          <div style="font-family:var(--font-gothic); font-size:1rem; letter-spacing:0.1em; color:#ffffff; margin-bottom:0.25rem;">
+            DROP NEW MAIN PHOTO HERE
+          </div>
+          <div style="font-size:0.8rem; color:var(--text-ash);">(or click to browse from device)</div>
+          <input type="file" id="hero-file-input" accept="image/*" />
+        </div>
+
+        <!-- Live Preview -->
+        <div class="preview-box" id="hero-preview-box">
+          <img id="hero-preview-img" src="" alt="Hero preview" />
+        </div>
+
+        <div class="form-group" style="margin-top:1.25rem;">
+          <label>OR PASTE IMAGE / GOOGLE DRIVE URL</label>
+          <input type="url" id="hero-url-input" class="form-input" placeholder="https://drive.google.com/file/d/... or https://..." />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>PHOTO TITLE / CAPTION</label>
+            <input type="text" id="hero-caption-input" class="form-input" placeholder="e.g. The White Tiger & Ghost Lilies" />
+          </div>
+          <div class="form-group">
+            <label>MEDIUM / TECHNIQUE SUBTITLE</label>
+            <input type="text" id="hero-subtag-input" class="form-input" placeholder="e.g. Ink, Pigment & Glaze" />
+          </div>
+        </div>
+
+        <!-- Quick Pick from existing gallery works -->
+        <div class="form-group">
+          <label>OR QUICK-PICK FROM EXISTING WORKS</label>
+          <select id="hero-pick-existing-select" class="form-select">
+            <option value="">-- Choose an artwork from your collection --</option>
+          </select>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem;">
+          <button type="button" id="cancel-hero-img-btn" class="btn-gothic-secondary">Cancel</button>
+          <button type="submit" class="btn-gothic-primary">Save Main Photo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Artwork detail view">
+    <div class="lightbox-header">
+      <div id="lightbox-counter" class="lightbox-counter">PIECE 01 / 06</div>
+      <button id="lightbox-close" class="lightbox-btn-icon" aria-label="Close view">&times;</button>
+    </div>
+
+    <div class="lightbox-body">
+      <button id="lightbox-prev" class="lightbox-nav-btn lightbox-nav-prev" aria-label="Previous artwork">&#10094;</button>
+
+      <div class="lightbox-image-wrapper">
+        <img id="lightbox-img" class="lightbox-image" src="" alt="Artwork detail" />
+      </div>
+
+      <button id="lightbox-next" class="lightbox-nav-btn lightbox-nav-next" aria-label="Next artwork">&#10095;</button>
+    </div>
+
+    <div class="lightbox-footer-info">
+      <h2 id="lightbox-title" class="lightbox-title"></h2>
+      <div id="lightbox-specs" class="lightbox-specs"></div>
+      <p id="lightbox-desc" class="lightbox-desc"></p>
+    </div>
+  </div>
+
+  <!-- Artist Login Modal (Eleni's Portal) -->
+  <div id="login-modal" class="login-modal" role="dialog" aria-modal="true" aria-label="Artist Sign In">
+    <div class="gothic-dialog-box">
+      <div class="gothic-dialog-header">
+        <h3 class="gothic-dialog-title">STUDIO ACCESS</h3>
+        <button id="close-login-btn" class="gothic-close-btn">&times;</button>
+      </div>
+
+      <p style="font-size:0.95rem; color:var(--text-ash); margin-bottom:1.5rem;">
+        Welcome, <strong>Eleni</strong>. Authenticate to edit page text, change the main photo, or add new artworks.
+      </p>
+
+      <!-- 1-Click Google Sign In -->
+      <button id="google-signin-btn" type="button" class="btn-gothic-primary" style="width:100%; justify-content:center; margin-bottom:1.25rem;">
+        <span>SIGN IN AS eleniloutroutzis@gmail.com</span>
+      </button>
+
+      <div style="text-align:center; font-family:var(--font-gothic); font-size:0.75rem; letter-spacing:0.15em; color:var(--text-muted); margin-bottom:1.25rem;">
+        -- OR STUDIO PASSCODE --
+      </div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label>ARTIST ACCOUNT</label>
+          <input type="email" id="login-email" class="form-input" value="eleniloutroutzis@gmail.com" readonly style="opacity:0.7;" />
+        </div>
+
+        <div class="form-group">
+          <label>STUDIO PASSCODE</label>
+          <input type="password" id="login-passcode" class="form-input" placeholder="Enter passcode" required />
+          <small style="font-family:var(--font-gothic); font-size:0.75rem; color:var(--text-muted); margin-top:3px;">
+            Default passcode: <code>eleni2026</code>
+          </small>
+        </div>
+
+        <button type="submit" class="btn-gothic-primary" style="width:100%; justify-content:center; margin-top:0.75rem;">
+          <span>OPEN STUDIO</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Studio "Post / Edit Artwork" Modal -->
+  <div id="studio-modal" class="studio-modal" role="dialog" aria-modal="true" aria-label="Post artwork">
+    <div class="gothic-dialog-box">
+      <div class="gothic-dialog-header">
+        <h3 id="studio-modal-title" class="gothic-dialog-title">INSERT NEW ARTWORK</h3>
+        <button id="close-studio-btn" class="gothic-close-btn">&times;</button>
+      </div>
+
+      <form id="studio-form">
+        <input type="hidden" id="edit-art-id" value="" />
+
+        <!-- Dropzone -->
+        <div class="dropzone" id="art-dropzone">
+          <div style="font-family:var(--font-gothic); font-size:1rem; letter-spacing:0.1em; color:#ffffff; margin-bottom:0.25rem;">
+            DROP IMAGE FILE HERE
+          </div>
+          <div style="font-size:0.8rem; color:var(--text-ash);">(or click to browse from device)</div>
+          <input type="file" id="art-file-input" accept="image/*" />
+        </div>
+
+        <!-- Preview -->
+        <div class="preview-box" id="preview-box">
+          <img id="preview-img" src="" alt="Preview" />
+          <button type="button" id="remove-preview-btn" style="position:absolute; top:8px; right:8px; background:#000; color:#fff; border:1px solid var(--border-medium); padding:4px 10px; cursor:pointer;">&times;</button>
+        </div>
+
+        <div class="form-group" style="margin-top:1.25rem;">
+          <label>OR PASTE GOOGLE DRIVE / CLOUD URL</label>
+          <input type="url" id="art-url" class="form-input" placeholder="https://drive.google.com/file/d/..." />
+          <div style="font-size:0.78rem; color:var(--text-ash); margin-top:3px;">
+            💡 Google Drive share links are automatically converted! Set permissions to "Anyone with link".
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>ARTWORK TITLE *</label>
+            <input type="text" id="art-title" class="form-input" placeholder="e.g. Solitary Horizon" required />
+          </div>
+          <div class="form-group">
+            <label>CATEGORY *</label>
+            <select id="art-category" class="form-select" required>
+              <option value="digital">Mythic & Digital Painting</option>
+              <option value="traditional">Oils & Traditional Art</option>
+              <option value="photography">35mm Film & Photography</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>MEDIUM & TECHNIQUE *</label>
+            <input type="text" id="art-medium" class="form-input" placeholder="e.g. Oil on Canvas or Graphite" required />
+          </div>
+          <div class="form-group">
+            <label>YEAR</label>
+            <input type="text" id="art-year" class="form-input" placeholder="2026" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>DIMENSIONS / RESOLUTION</label>
+          <input type="text" id="art-dimensions" class="form-input" placeholder="e.g. 80 × 120 cm or 5600 × 3500 px" />
+        </div>
+
+        <div class="form-group">
+          <label>NARRATIVE / DESCRIPTION</label>
+          <textarea id="art-desc" class="form-textarea" placeholder="Technique notes, inspiration, or story..."></textarea>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.25rem;">
+          <button type="button" id="export-data-btn" class="btn-gothic-secondary" style="font-size:0.75rem; padding:0.5rem 1rem;">
+            Export JSON
+          </button>
+          <button type="submit" id="submit-art-btn" class="btn-gothic-primary">
+            <span>Publish Artwork</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/artworks-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
